@@ -20,7 +20,7 @@ def main():
     """
             valid minutes          valid minutes at end
                _______             _____
-                1   3   5   2   5   44
+                1   3   5   2   5   4
                 1   1   0   1   0   0
                         _________
                             k(min)
@@ -72,9 +72,9 @@ def main():
     # print("valid prefix_sum",valid_prefix_sum)
     # print("valid suffix_sum",valid_suffix_sum)
     # print(" prefix_sum",prefix_sum)
-    
+    count = 0
 
-    for i in range(0,n-k,1):
+    for i in range(0,n-k+1,1):
         curr_sum = 0
         if i>0 :
             curr_sum += valid_prefix_sum[i-1]
@@ -83,7 +83,7 @@ def main():
 
         range_sum = prefix_sum[i+k-1] - prefix_sum[i-1]
         curr_sum += range_sum
-
+        count+=1
         ans = max(curr_sum,ans)
 
     print(ans)
