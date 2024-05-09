@@ -81,11 +81,14 @@ def main():
         if i+k<n:
             curr_sum+= valid_suffix_sum[i+k]
 
-        range_sum = prefix_sum[i+k-1] - prefix_sum[i-1]
+        range_sum = prefix_sum[i+k-1] 
+        if i>0:
+            range_sum -= prefix_sum[i-1]
         curr_sum += range_sum
-        count+=1
+        # count+=1
+        # print(f"i {i} curr_sum {curr_sum}")
         ans = max(curr_sum,ans)
-
+    # print(count)
     print(ans)
         
 
