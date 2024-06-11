@@ -88,7 +88,7 @@ def main():
         # count+=1
         # print(f"i {i} curr_sum {curr_sum}")
         ans = max(curr_sum,ans)
-    # print(count)
+    print(count)
     print(ans)
         
 
