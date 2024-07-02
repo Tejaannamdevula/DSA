@@ -58,8 +58,7 @@ class SLL:
 
     def delete_first(self):
         if not self.head:
-            print("linked list is empty")
-            return None
+            raise IndexError("Linked list is empty")
         else:
             val = self.head.data
             self.head = self.head.next
@@ -67,6 +66,8 @@ class SLL:
             return val
 
     def delete_last(self):
+        if self.size == 0:
+            raise IndexError("Linked list is empty")
         if self.size <= 1:
             return self.delete_first()
 
@@ -80,7 +81,7 @@ class SLL:
         return val
 
     def delete(self, index):
-        if index >= self.size:
+        if index < 0 or index >= self.size:
             raise IndexError("Index out of bounds")
         temp = self.head
         if index == 0:
