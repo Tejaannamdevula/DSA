@@ -39,11 +39,11 @@ class DLL:
             self.size += 1
 
     def insert(self, val, index):
-        if index < 0 or index >= self.size:
+        if index < 0 or index > self.size:
             raise IndexError("Index out of bounds")
         if index == 0:
             self.insert_first(val)
-        elif index == self.size - 1:
+        elif index == self.size:
             self.insert_last(val)
         else:
             temp = self.head
@@ -66,7 +66,7 @@ class DLL:
                 self.head.prev = None
             else:
                 self.tail = None
-            self.size = 0
+            self.size -= 1
             return val
 
     def delete_last(self):
@@ -76,8 +76,7 @@ class DLL:
             else:
                 val = self.head.data
                 self.head = self.tail = None
-                self.size = 0
-            return val
+                self.size -= 1
         else:
             val = self.tail.data
             self.tail = self.tail.prev
@@ -85,7 +84,7 @@ class DLL:
 
             self.size -= 1
 
-            return val
+        return val
 
     def delete(self, index):
         if index < 0 or index >= self.size:
@@ -116,6 +115,8 @@ class DLL:
         return False
 
     def __str__(self) -> str:
+        if not self.head:
+            return "Empty Doubly Linked List"
         values = []
         curr = self.head
         while curr:
@@ -126,21 +127,11 @@ class DLL:
 
 dll = DLL()
 
-dll.insert_last(1)
-# print(dll.delete_first())
-dll.insert_first(2)
-
-# dll.insert_first(3)
-# print(dll.delete_last())
-
-# dll.insert_last(4)
-# dll.insert(5, 3)
-# print(dll)
-# dll.insert(6, 1)
-dll.delete(0)
+dll.insert_first(1)
 print(dll)
-
-
-# print(dll.find(1))
-# print("size after inserting 5", dll.size)
-# print(dll)
+dll.insert_first(2)
+dll.insert_first(4)
+dll.insert_first(3)
+print(dll)
+dll.delete(1)
+print(dll)
