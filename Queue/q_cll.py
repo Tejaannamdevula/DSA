@@ -4,7 +4,6 @@ class CircularQueue:
         self.size = size
         self.front = -1
         self.rear = -1
-        pass
 
     def isEmpty(self):
         return self.rear == self.front == -1
@@ -26,9 +25,10 @@ class CircularQueue:
             raise IndexError("Queue is empty")
 
         element = self.q[self.front]
-        if self.rear == self.front == 0:  # single element
+        if self.rear == self.front:  # single element
             self.rear = self.front = -1
-        self.front = (self.front + 1) % self.size
+        else:
+            self.front = (self.front + 1) % self.size
 
         return element
 
