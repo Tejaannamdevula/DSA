@@ -53,7 +53,7 @@ class BinaryTree:
         self.postorder(root.right)
         print(root.data)
 
-    def levelorder(self, root):
+    def levelorder(self, root):  # O(N)
         d = deque()
         if not root:
             print("Tree is empty")
@@ -92,12 +92,12 @@ class BinaryTree:
             level += 1
             print()
 
-    def countNodes(self, root):
+    def countNodes(self, root):  # O(N)
         if not root:
             return 0
         return 1 + self.countNodes(root.left) + self.countNodes(root.right)
 
-    def height(self, root):
+    def height(self, root):  # O(N)
         if not root:
             return 0
 
