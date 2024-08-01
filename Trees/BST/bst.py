@@ -41,7 +41,33 @@ class BST:
             return self.search(root.right, val)
         elif root.data > val:
             return self.search(root.left, val)
-        return False
+        # return False
+
+    def inorder_successor(self, root):
+        while root.left is not None:
+            root = root.left
+        return root
+
+    def delete(self, root, val):
+        if not root:
+            return None
+
+        if root.data > val:
+            root.left = self.delete(root.left, val)
+        elif root.data < val:
+            root.right = self.delete(root.right, val)
+        else:
+            if root.left is None and root.right is None:
+                return None
+            elif root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+            else:
+                io_succesor = self.inorder_successor(root.right)
+                root.data = io_succesor.data
+                root.right = self.delete(root.right, io_succesor.data)
+        return root
 
 
 if __name__ == "__main__":
@@ -56,8 +82,11 @@ if __name__ == "__main__":
             print(e)
 
     tree.inorder(tree.root)
-    print("5", tree.search(tree.root, 5))
-    print("4", tree.search(tree.root, 4))
-    print("2", tree.search(tree.root, 2))
-    print("1", tree.search(tree.root, 1))
-    print("6", tree.search(tree.root, 6))
+    tree.root = tree.delete(tree.root, 5)
+    tree.inorder(tree.root)
+    print(tree.root.data)
+    # print("5", tree.search(tree.root, 5))
+    # print("4", tree.search(tree.root, 4))
+    # print("2", tree.search(tree.root, 2))
+    # print("1", tree.search(tree.root, 1))
+    # print("6", tree.search(tree.root, 6))
