@@ -7,3 +7,6 @@
 [Yt Stream Link ](https://www.youtube.com/watch?v=zDEQaDl3cso&list=WL&index=3&t=3995s)
 
 C: May 7, 2024, 3:30 PM
+
+    Problems:
+        F. Learnt Dearrangements
