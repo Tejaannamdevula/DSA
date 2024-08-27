@@ -17,3 +17,9 @@ C: Aug 26, 2024, 11:41 PM
         - connected component a group of vertices where each
             vertex is connected to all other vertices
         - make the connected component as large as possible
+
+
+    Problems :
+
+    C. BFS we can find shortest paths if all lengths are equal
+        To connect group of vertices we dont need to do explicitly by adding all edges we can add a few in a line and connect them
