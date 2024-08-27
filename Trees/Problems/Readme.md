@@ -19,3 +19,7 @@ C: Aug 26, 2024, 11:41 PM
         f. exactly one parent except root
 
     if any of 2 conditions in b,c,e are true it is a tree
+
+#### Problems
+
+    B. Little intro to Tree DP and got insight on how to do dfs on tree using adj_list
